@@ -98,10 +98,25 @@ checkSum(void* data, int dataSize)
   return (u16)byteSum;
 }
 
+void
+printHelp(char* progname)
+{
+  printf("Usage: %s [input file] [program name]\n\n", progname);
+  
+  printf("The input file must be raw Z80 machine code without any headers, checksums, etc.\n");
+}
+
 i32 main(i32 argc, char** argv)
 {
   char* fileArg = argv[1];
   char* outFilenameBase = argv[2];
+
+  if(fileArg == 0 || outFilenameBase == 0) 
+    {
+      printHelp(argv[0]); 
+      exit(0);
+    }
+
   if(!isAlphaNum(outFilenameBase)) ERROR("Output name has to be alphanumeric");
   toUpper(outFilenameBase);
 
