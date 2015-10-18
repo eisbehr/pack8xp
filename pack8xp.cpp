@@ -56,9 +56,9 @@ isAlphaNum(char* string)
   char* p = string;
   while(*p != 0) 
     {
-      if((*p >= 48 && *p <= 57) ||
-	(*p >= 65 && *p <= 90) ||
-	 (*p >= 97 && *p <= 122))
+      if((*p >= '0' && *p <= '9') ||
+	 (*p >= 'A' && *p <= 'Z') ||
+	 (*p >= 'a' && *p <= 'z'))
 	{
 	  // is alphanum
 	}
@@ -77,7 +77,7 @@ toUpper(char* string)
   char* p = string;
   while(*p != 0)
     {
-      if((*p >= 97 && *p <= 122))
+      if((*p >= 'a' && *p <= 'z'))
 	{
 	  // is lower case
 	  *p = *p - 32;
